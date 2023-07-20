@@ -1,0 +1,50 @@
+.tproductos{
+    text-align: center;
+    background-color: black;
+    color: aqua;
+    border-radius: 20px;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  
+  .All .cardContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    margin: 10px;
+  }
+
+
+  .All .categoriesContainer {
+    display: flex;
+    background-color: rgb(139, 40, 139);
+    text-decoration: none;
+    list-style: none;
+    justify-content: space-between;
+    padding: 2rem;
+    color: aqua;
+
+}
+
+.All .categoriesContainer .categoryContainer .categoryName {
+    background-color: rgb(139, 40, 139);
+    border: none;
+    color: aqua;
+   
+  
+    
+}
+.All .categoriesContainer .categoryContainer :hover {
+  color: rgb(139, 40, 139);
+  background-color: aqua;
+}
+
+.All .categoriesContainer .categoryContainer {
+background-color: rgb(139, 40, 139);
+border: none;
+transition: 0.3s;
+border-radius: 4px;
+}
+
+

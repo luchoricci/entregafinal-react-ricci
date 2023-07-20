@@ -1,0 +1,46 @@
+.container{
+    text-align: right;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+
+.container input{
+    width: 50%;
+    height: 50px;
+    padding:10px;
+    margin: 10px;
+    position: relative;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    color:aqua;
+    outline: none;
+    box-shadow: 0px 0px 20px rgba(185, 4, 251, 0.3);
+}
+.container label{
+    background-color: black;
+    color: aqua;
+    height: 50px;
+    padding:10px;
+    margin: 10px;
+    position: relative;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    box-shadow: 0px 0px 20px rgba(185, 4, 251, 0.3);
+}
+
+.container input:hover {
+    background-color: rgb(31, 30, 30);
+    box-shadow: 0px 4px 20px 0 aqua;
+    
+}
+
+

@@ -1,0 +1,97 @@
+
+.card{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid aqua;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: black;
+    box-shadow: 20px 20px 30px rgb(139, 40, 139);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    color: aqua;
+    max-height: 600px;
+    justify-content: center;
+    
+}
+
+.card img{
+    width: 100%;
+    border-radius: 20px;
+    max-height: 350px;
+}
+
+.card .cardButton{
+
+    line-height: 30px;
+    border-radius: 40px;
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    bottom: 20px;
+    right: 10px;
+   margin-top: 15px;
+   margin-left: 60px;
+
+
+}
+
+
+.cardDetail{
+
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid aqua;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: black;
+    box-shadow: 20px 20px 30px rgb(139, 40, 139);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    color: aqua;
+    max-height: 600px;
+    display: flex;
+   
+    
+}
+
+.cardDetail img{
+    
+    border-radius: 20px;
+    max-height: 350px;
+}
+
+.cardDetail .detailCarac{text-align: center;
+    width: 100%;
+
+}
+
+.cardDetail .detailCarac .detailCardName{margin-bottom: 20px;
+    margin-top: 30px;
+
+}
+.cardDetail .detailCarac .detailCardCategory{margin-bottom: 10px;
+
+}
+.cardDetail .detailCarac .detailCardDescription{margin-bottom: 10px;
+
+}
+.cardDetail .detailCarac .detailCardPrice{margin-bottom: 10px;
+
+}
+.cardDetail .detailCarac .detailCardStock{margin-bottom: 40px;
+
+}
+
+.cardDetail .detailCarac .detailCardButton{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 40px;
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    bottom: 20px;
+    right: 10px;
+   margin-top: 15px;   
+}
+
