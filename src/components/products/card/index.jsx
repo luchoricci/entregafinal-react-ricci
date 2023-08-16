@@ -13,7 +13,8 @@ const Card = ({
 }) => {
   return (
     
-      <div className="card" onClick={() => onShowDetails(id)}>
+      <div className="card" >
+        <button className="pButton" type="button" onClick={() => onShowDetails(id)}>
         <img className="cardImage" src={image} alt={name} />
         <div>
           <h3 className="cardName">{name}</h3>
@@ -22,11 +23,10 @@ const Card = ({
           <p className="cardPrice">${price}</p>
           <p className="cardStock">{stock} Left</p>
         </div>
-        
-          <button onClick={() => onAddToCart(id)} className="cardButton">
-            Add to cart
-          </button>
-        
+        </button>
+        <div className="cardbutton">
+        <button onClick={() => onAddToCart(id)} className='cartButton'>Add to cart</button>
+        </div>
       </div>
     
   );

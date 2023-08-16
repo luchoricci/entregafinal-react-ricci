@@ -1,0 +1,59 @@
+import { useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import './styles.css'
+import { CartContext } from '../../context/cart-context';
+
+
+
+function Cart() {
+  const navigate = useNavigate();
+    const {cart,onAddToCart,onRemoveItem, onDecreaseItem, total, getTotalItemQuantity} = useContext(CartContext)
+  const GoToCheckout = () => {
+    navigate('/Checkout')
+  }
+
+  console.log ({cart})
+    return (
+      <div>
+       <h2>Cart</h2>
+      <div className="cartContainer">
+        {cart.length === 0 && <h3>cart is empy</h3>}
+        {cart?.length > 0 && cart.map((product) => (
+            <div key={product.id} className="cartItem">
+               <div className="cartImage"><img src={product.image} /></div>
+                 <div className="cartContentContainer">
+                   <p>{product.name}</p>  
+                   <p>quantity: {product.quantity}</p>
+                 <p>${product.price}</p> 
+                   <p>{product.stock} left</p>
+                 </div>
+                <div className="cartActions">
+                  <button onClick={() => onAddToCart(product.id)} className="cartButtonAdd">+</button>
+                  <button onClick={() => onDecreaseItem(product.id)} className="cartButtonDecrease">-</button>
+                  <button onClick={() => onRemoveItem(product.id)} className="cartButtonRemove">Remove</button>
+               </div>
+
+            
+            </div>
+            
+           ))
+         } 
+         {
+           cart?.length > 0 && (
+           <div>
+           <p className="cartTotal">Total:$ {total} </p>
+           <p className='cartItemQuantity'>Items: {getTotalItemQuantity()}</p>
+           <button onClick={GoToCheckout} className='cartButtonCheckout'>Checkout</button>
+           </div>
+           )
+         }
+       
+       </div>
+       </div>
+    )
+  
+        }
+
+  export default Cart;
+
+
