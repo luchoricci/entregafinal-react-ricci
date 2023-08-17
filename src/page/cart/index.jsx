@@ -2,17 +2,34 @@ import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './styles.css'
 import { CartContext } from '../../context/cart-context';
+import { firebaseServices } from '../../services/firebase';
 
 
 
 function Cart() {
   const navigate = useNavigate();
     const {cart,onAddToCart,onRemoveItem, onDecreaseItem, total, getTotalItemQuantity} = useContext(CartContext)
-  const GoToCheckout = () => {
-    navigate('/Checkout')
+  
+    const onHandlerCreateCart = async () => {
+      const newCart ={
+            buyer: {
+            id: 1
+            },
+            items: cart,
+            createdAt: new Date(),
+            total: total,
+            status: ' pending',
+      }
+const cartId = await firebaseServices.createCart(newCart)
+
+return cartId
+  }
+    const onHandlerCheckout = async () => {
+    const cartId = await onHandlerCreateCart()
+
+    navigate('/Checkout', {state: {cartId: cartId.id}})
   }
 
-  console.log ({cart})
     return (
       <div>
        <h2>Cart</h2>
@@ -43,7 +60,7 @@ function Cart() {
            <div>
            <p className="cartTotal">Total:$ {total} </p>
            <p className='cartItemQuantity'>Items: {getTotalItemQuantity()}</p>
-           <button onClick={GoToCheckout} className='cartButtonCheckout'>Checkout</button>
+           <button onClick={onHandlerCheckout} className='cartButtonCheckout'>Checkout</button>
            </div>
            )
          }

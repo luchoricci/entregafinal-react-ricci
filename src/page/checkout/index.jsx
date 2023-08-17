@@ -1,23 +1,51 @@
 import './styles.css'
 import Input from '../../components/input'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { CartContext } from '../../context/cart-context'
+import { firebaseServices } from '../../services/firebase'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useQuery } from '../../hooks/useQuery'
+
 
 const initialState = {
-    name : {value: '', error:'', hasError: true, active: false, name: 'name'},
-    surname : {value: '', error:'', hasError: true, active: false, name: 'surname'},
-    email : {value: '', error:'', hasError: true, active: false, name: 'email'},
-    DNI : {value: '', error:'', hasError: true, active: false, name: 'DNI'},
-    phone: {value: '', error:'', hasError: true, active: false, name: 'phone'},
-    address: {value: '', error:'', hasError: true, active: false, name: 'address'},
+    name : { value: '', error: '', hasError: true, active: false, name: 'name' },
+    surname : { value: '', error: '', hasError: true, active: false, name: 'surname' },
+    email : { value: '', error: '', hasError: true, active: false, name: 'email' },
+    DNI : { value: '', error: '', hasError: true, active: false, name: 'DNI' },
+    phone: { value: '', error: '', hasError: true, active: false, name: 'phone' },
+    address: { value: '', error: '', hasError: true, active: false, name: 'address' },
     isFormValid: false, 
 
 }
 
 function Checkout() {
-    const [formState, inputHandler, clearInputs, inputFocus, inputBlur] = useForm(initialState)
-    const {cart} = useContext(CartContext)
+    const {cart, total, setCart, onAddToCart, onDecreaseItem, onRemoveItem, getTotalItemQuantity} = useContext(CartContext);
+    const [formState, inputHandler, inputFocus, inputBlur, clearInputs] = useForm(initialState)
+    const { state } = useLocation();
+    const navigate = useNavigate();
+    let query = useQuery();
+
+useEffect(() => {
+    const cartId = query.get("cartId") 
+    
+    if(query.get("cartId")) {
+        const getCart = async () => {
+            const cart = await firebaseServices.getCartById(cartId)
+            return cart
+        }
+        getCart()
+            .then((cart) => {
+                setCart(cart.items)
+            })
+            .catch((error) => {
+                console.log({error})
+            })
+    }
+
+}, [query])
+
+
     const onChange = (event) => {
         const {name, value} = event.target
         inputHandler({name, value})
@@ -47,8 +75,8 @@ function Checkout() {
             items: cart,
             payment: {
                 currency: '$',
-                method: 'paypal',
-                type:'cash',
+                method: 'CASH',
+                type:'CASH',
             },
             seller: {
                 name: 'maria',
@@ -64,12 +92,21 @@ function Checkout() {
             },
             total: total
         }
+      const orderId = await firebaseServices.createOrder(newOrder)
+      await firebaseServices.updateCart(state?.cartId)
+
+      return {orderId,
+    }
+    }
+  
+
+    const onSubmit = async (event) => {
+        event.preventDefault()
+        const { orderId } = await onHandlerOrder();
+        clearInputs({ formState })
+        navigate('/success-order', { state: { orderId: orderId.id } })
     }
 
-const onSubmit = (event) => {
-    event.preventDefault()
-    console.log('formState', formState)
-}
 
     return(
 <div className="checkoutContainer" >
