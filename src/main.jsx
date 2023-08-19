@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
+
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "firebase/app";
@@ -17,12 +18,12 @@ import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAzeI-m2oPabiQq97txt2PMEyRiXzNyr3s",
-  authDomain: "proyecto-final-44b26.firebaseapp.com",
-  projectId: "proyecto-final-44b26",
-  storageBucket: "proyecto-final-44b26.appspot.com",
-  messagingSenderId: "521396366554",
-  appId: "1:521396366554:web:61570b620e2166d32949e3"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID
 
 };
 
