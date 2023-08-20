@@ -1,0 +1,54 @@
+.hero {
+    background-image: url("../../imagen/bebidas.avif");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hero h4 {
+    padding-bottom: 15px;
+}
+
+.hero h1 {
+    color: aqua;
+    font-size: 50px;
+    line-height: 64px;
+}
+
+.hero button {
+
+    background-color: rgb(141, 0, 154);
+    color: aqua;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: 15px;
+    
+
+}
+
+.hero h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: aqua;
+}
+
+.hero h4 {
+    font-size: 20px;
+    color: aqua;
+}
+
+.hero p {
+    font-size: 16px;
+    color: aqua;
+    margin: 15px 0 20px 0;
+}
+
+

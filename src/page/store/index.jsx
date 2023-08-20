@@ -46,10 +46,6 @@ if(products?.length > 0) {
     setProductFiltered(productsBycategory);
   };
 
- 
-  
-  
-    console.log({productsContext, cart})
   return (
     <div className="All">
      <div><h2 className="tproductos">Products</h2></div>

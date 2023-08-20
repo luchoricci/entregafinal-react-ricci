@@ -34,7 +34,7 @@ return cartId
       <div>
        <h2>Cart</h2>
       <div className="cartContainer">
-        {cart.length === 0 && <h3>cart is empy</h3>}
+        {cart.length === 0 && <h3>cart is empty</h3>}
         {cart?.length > 0 && cart.map((product) => (
             <div key={product.id} className="cartItem">
                <div className="cartImage"><img src={product.image} /></div>

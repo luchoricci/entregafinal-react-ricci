@@ -8,6 +8,7 @@ import { CartProvider } from "./context/cart-context";
 import Cart from "./page/cart";
 import Checkout from "./page/checkout";
 import SuccessOrder from "./page/success-order";
+import Home from "./page/Home";
 
 
 
@@ -18,7 +19,9 @@ function App() {
       <CartProvider>
       <Header logo="Un Traguito" cartwidget={<i className="bi bi-bag"></i>}/>
       <Routes>
-        <Route path="/" element={<Store />} />
+        <Route path="/" element={<Home/>}/>
+        <Route path="/Store" element={<Store />} />
+        
         <Route path='/products/:productId' element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout/>} />
